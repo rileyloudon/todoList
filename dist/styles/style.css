@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+:root {
+  --dark-main-color: #eee;
+  --dark-secondary-color: #343332;
+
+  --light-main-color: #343332;
+  --light-secondary-color: #eee;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: var(--dark-secondary-color);
+  margin: 0;
+}
+
+/* Navigation */
+header {
+  float: left;
+  padding-right: 10px;
+}
+
+#sort,
+#groups {
+  list-style-type: none;
+}
+
+#sort h3,
+#groups h3 {
+  margin: 5px;
+  color: var(--dark-main-color);
+}
+
+#sort a,
+#groups a {
+  color: var(--dark-main-color);
+}
+
+/* Todo Form */
