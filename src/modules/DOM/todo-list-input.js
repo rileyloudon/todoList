@@ -1,4 +1,4 @@
-const createTodoItemDOM = () => {
+const createTodoForm = () => {
   const main = document.getElementById('main');
   main.innerHTML = `
   <form id='todo-form'>
@@ -28,4 +28,4 @@ const createTodoItemDOM = () => {
   `;
 };
 
-export default createTodoItemDOM;
+export default createTodoForm;
