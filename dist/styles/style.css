@@ -10,14 +10,27 @@
 
 body {
   font-family: 'Lato', sans-serif;
+  color: var(--dark-main-color);
   background-color: var(--dark-secondary-color);
   margin: 0;
 }
 
+#content {
+  display: flex;
+}
+
+#main {
+  margin: auto;
+}
+
 /* Navigation */
 header {
-  float: left;
+  max-width: 200px;
   padding-right: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 33%;
 }
 
 #sort,
@@ -28,7 +41,6 @@ header {
 #sort h3,
 #groups h3 {
   margin: 5px;
-  color: var(--dark-main-color);
 }
 
 #sort a,
@@ -37,3 +49,61 @@ header {
 }
 
 /* Todo Form */
+#todo-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.5fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    'title title right'
+    'date group right';
+  font-size: 1em;
+  border: 1px solid var(--dark-main-color);
+  border-radius: 4px;
+  padding: 8px;
+}
+
+#title {
+  grid-area: title;
+}
+
+#title label {
+  margin: 5px;
+}
+
+#todo-title {
+  width: 93%;
+  border: 1px solid var(--dark-main-color);
+  border-radius: 15px;
+}
+
+#date {
+  grid-area: date;
+}
+
+#todo-date {
+  border: 1px solid var(--dark-main-color);
+  border-radius: 15px;
+}
+
+#group {
+  grid-area: group;
+  margin: auto;
+}
+
+#confirm {
+  grid-area: right;
+  margin: auto;
+}
+
+#todo-form input,
+#todo-form select,
+#todo-form button {
+  padding: 8px;
+  background: transparent;
+}
+
+#todo-form ::placeholder,
+#todo-form select,
+#todo-form button {
+  color: var(--dark-main-color);
+}
