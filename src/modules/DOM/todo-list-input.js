@@ -8,20 +8,21 @@ const createTodoForm = () => {
     </div>
 
     <div id='date'>
-      <label for='todo-date'></label>
-      <input type='date' id='todo-date' name='todo-date' placeholder='yyyy-mm-dd'>
+      <input type='date' id='todo-date' name='todo-date' placeholder='mm-dd-yyyy'>
     </div>
 
-    <div id='group'
-      <label for='todo-group'></label>
-      <select id='todo-group' name='todo-group'>
-        <option value='none'>None</option>
+    <div id='group'>
+      <select class='form-select' aria-label='select'>
+        <option value='none' selected>Select Group</option>
         <option value='birthday'>Birthday</option>
       </select>
     </div>
 
-    <div id='confirm'>
-      <button id='todo-submit'>Add</button>
+    <div id='submit'>
+      <button id='todo-submit'>
+        <span class="material-icons">
+          done
+        </span></button>
     </div>
 
   </form>
