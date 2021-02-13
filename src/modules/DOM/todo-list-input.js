@@ -4,21 +4,21 @@ const createTodoForm = () => {
   <form id='todo-form'>
     <div id='title'>
       <label for='todo-title'>Add Todo</label>
-      <input type='text' id='todo-title' name='todo-title' placeholder='Todo Name'>
+      <input type='text' id='todo-title' name='todo-title' placeholder='Todo Name' required>
     </div>
 
     <div id='date'>
-      <input type='date' id='todo-date' name='todo-date' placeholder='mm-dd-yyyy'>
+      <input type='date' id='todo-date' name='todo-date' placeholder='yyyy/mm/dd'>
     </div>
 
     <div id='group'>
-      <select class='form-select' aria-label='select'>
+      <select id='todo-group' class='form-select'>
         <option value='none' selected>Select Group</option>
         <option value='birthday'>Birthday</option>
       </select>
     </div>
 
-    <div id='submit'>
+    <div id='add'>
       <button id='todo-submit'>
         <span class="material-icons">
           done
