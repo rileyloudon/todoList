@@ -98,11 +98,16 @@ header {
   background-size: 16px 12px;
 }
 
-.form-select {
-  color: #eee;
+#group option {
+  background: var(--dark-secondary-color);
+  color: var(--dark-main-color);
 }
 
-#submit {
+.form-select {
+  color: var(--dark-main-color);
+}
+
+#add {
   grid-area: right;
   display: flex;
   justify-content: center;
