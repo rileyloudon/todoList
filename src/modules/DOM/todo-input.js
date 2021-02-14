@@ -16,7 +16,6 @@ const createTodoForm = () => {
     <div id='group'>
       <select id='todo-group' class='form-select'>
         <option value='none' selected>Select Group</option>
-        <option value='birthday'>Birthday</option>
         ${myGroups
           .map((item) => `<option value='${item}'>${item}</option>`)
           .join('')}
