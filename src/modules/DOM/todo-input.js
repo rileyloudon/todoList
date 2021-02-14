@@ -1,3 +1,5 @@
+import { myGroups } from '../controllers/user-data';
+
 const createTodoForm = () => {
   const main = document.getElementById('main');
   main.innerHTML = `
@@ -15,6 +17,9 @@ const createTodoForm = () => {
       <select id='todo-group' class='form-select'>
         <option value='none' selected>Select Group</option>
         <option value='birthday'>Birthday</option>
+        ${myGroups
+          .map((item) => `<option value='${item}'>${item}</option>`)
+          .join('')}
       </select>
     </div>
 
@@ -24,8 +29,8 @@ const createTodoForm = () => {
           done
         </span></button>
     </div>
-
   </form>
+  <div id='todos'></div>
   `;
 };
 

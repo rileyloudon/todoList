@@ -1,5 +1,5 @@
 import navbar from './navbar';
-import createTodoForm from './todo-list-input';
+import createTodoForm from './todo-input';
 
 const initialLoad = () => {
   navbar();
