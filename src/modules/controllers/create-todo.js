@@ -1,8 +1,8 @@
 import todaysDate from './todays-date';
+import { myTodos } from './user-data';
+import renderTodo from '../DOM/render-todo';
 
 const createTodo = () => {
-  let myTodos = [];
-
   class Todo {
     constructor(title, dateAdded, dueDate, group) {
       this.title = title;
@@ -18,12 +18,12 @@ const createTodo = () => {
   let todoGroup = document.getElementById('todo-group').value;
 
   if (todoDate === '') {
-    todoDate = 'Anytime';
+    todoDate = '∞';
   }
 
   const todo = new Todo(todoName, dateAdded, todoDate, todoGroup);
-
-  myTodos.push(todo);
+  myTodos.unshift(todo);
+  renderTodo();
 
   document.getElementById('todo-form').reset();
 };
