@@ -8,15 +8,15 @@
   --light-secondary-color: #eee;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Lato', sans-serif;
   color: var(--dark-main-color);
   background-color: var(--dark-secondary-color);
   margin: 0;
-}
-
-#content {
-  display: flex;
 }
 
 #main {
@@ -31,6 +31,10 @@ header {
   overflow: hidden;
   text-overflow: ellipsis;
   flex: 33%;
+}
+
+#sort {
+  margin-top: 25px;
 }
 
 #sort,
@@ -48,8 +52,16 @@ header {
   color: var(--dark-main-color);
 }
 
+#groups button {
+  margin: 5px 0 15px 0;
+  color: var(--dark-main-color);
+  border: 1px solid var(--dark-main-color);
+}
+
 /* Todo Form */
 #todo-form {
+  margin: auto;
+  margin-top: 25px;
   display: grid;
   grid-template-columns: 1fr 1fr 0.5fr;
   grid-template-rows: 0.5fr 0.5fr;
@@ -122,7 +134,7 @@ header {
 }
 
 #todo-submit span {
-  color: aquamarine;
+  color: var(--bs-teal);
   font-size: 2.5rem;
 }
 
@@ -138,4 +150,49 @@ header {
 #todo-form select,
 #todo-form button {
   color: var(--dark-main-color);
+}
+
+/* Todo Items */
+#render-todo {
+  border: 1px solid var(--dark-main-color);
+  display: grid;
+  grid-template-columns: 1.7fr 0.3fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    'title time'
+    'title group';
+  margin: auto;
+  width: 66vw;
+  max-width: 650px;
+  margin-top: 25px;
+  border-radius: 4px;
+  font-size: 1.1em;
+  padding: 6px;
+}
+
+#render-title {
+  grid-area: title;
+  font-size: 1.75em;
+  margin: auto;
+}
+
+#render-dueDate {
+  grid-area: time;
+  margin: auto;
+  color: var(--bs-teal);
+}
+
+#render-group {
+  grid-area: group;
+  margin: auto;
+}
+
+/* Group Colors */
+#render-todo.Birthdays {
+  border: 1px solid var(--bs-info);
+  color: var(--bs-info);
+}
+
+#render-todo.Birthdays #render-group {
+  color: var(--bs-info);
 }
