@@ -4,7 +4,7 @@ const groups = () => {
   return `      
   <nav>
   <ul id='groups'>
-    <h3>Groups</h3>
+    <h4>Groups</h4>
       <li><button type='button' class='btn'>Edit Groups</li>
       <li><a href="#" id='all-todos'>View All</a></li>
       ${myGroups
