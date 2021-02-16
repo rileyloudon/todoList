@@ -1,6 +1,6 @@
-import todaysDate from './todays-date';
 import { myTodos } from './user-data';
 import renderTodo from '../DOM/render-todo';
+import { format } from 'date-fns';
 
 const createTodo = () => {
   class Todo {
@@ -13,15 +13,15 @@ const createTodo = () => {
   }
 
   let todoName = document.getElementById('todo-title').value;
-  let dateAdded = todaysDate();
-  let todoDate = document.getElementById('todo-date').value;
+  let dateAdded = format(new Date(), 'PPP');
+  let todoDueDate = document.getElementById('todo-date').value;
   let todoGroup = document.getElementById('todo-group').value;
 
-  if (todoDate === '') {
-    todoDate = '∞';
+  if (todoDueDate === '') {
+    todoDueDate = '∞';
   }
 
-  const todo = new Todo(todoName, dateAdded, todoDate, todoGroup);
+  const todo = new Todo(todoName, dateAdded, todoDueDate, todoGroup);
   myTodos.unshift(todo);
   renderTodo();
 
