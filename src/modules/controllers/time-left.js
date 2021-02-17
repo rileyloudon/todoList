@@ -3,12 +3,17 @@ import { formatDistanceToNowStrict } from 'date-fns';
 const timeLeft = (todo) => {
   let time = '';
   if (todo.dueDate === '∞') {
-    time = '∞';
+    return (time = '∞');
   } else {
     time = formatDistanceToNowStrict(new Date(todo.dueDate));
-  }
 
-  return time;
+    let formatTime = time.split(' ');
+    let unit = '';
+    formatTime[1] === 'months' || formatTime[1] === 'month'
+      ? (unit = 'mo')
+      : (unit = formatTime[1][0]);
+    return formatTime[0] + unit;
+  }
 };
 
 export default timeLeft;
