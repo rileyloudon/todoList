@@ -5,7 +5,7 @@ const timeLeft = (todo) => {
   if (todo.dueDate === '∞') {
     return (time = '∞');
   } else {
-    time = formatDistanceToNowStrict(new Date(todo.dueDate));
+    time = formatDistanceToNowStrict(todo.dueDate);
 
     let formatTime = time.split(' ');
     let unit = '';

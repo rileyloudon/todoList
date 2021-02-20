@@ -1,6 +1,5 @@
 import { myTodos } from './user-data';
 import renderTodo from '../DOM/render-todo';
-import { format } from 'date-fns';
 
 const createTodo = () => {
   class Todo {
@@ -13,19 +12,24 @@ const createTodo = () => {
   }
 
   let todoName = document.getElementById('todo-title').value;
-  let dateAdded = format(new Date(), 'PPP');
+  let dateAdded = new Date();
   let todoDueDate = document.getElementById('todo-date').value;
+  let todoDueTime = ' 00:00';
   let todoGroup = document.getElementById('todo-group').value;
 
-  if (todoDueDate === '') {
-    todoDueDate = '∞';
-  }
+  const todo = new Todo(
+    todoName,
+    dateAdded,
+    todoDueDate === '' ? '∞' : new Date(todoDueDate + todoDueTime),
+    todoGroup,
+  );
 
-  const todo = new Todo(todoName, dateAdded, todoDueDate, todoGroup);
   myTodos.unshift(todo);
   renderTodo();
 
   document.getElementById('todo-form').reset();
 };
+
+// format(new Date(), 'PPP')
 
 export default createTodo;
