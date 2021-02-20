@@ -3,14 +3,19 @@ import { myGroups } from '../controllers/user-data';
 const groups = () => {
   return `      
   <nav>
-  <ul id='groups'>
-    <h4>Groups</h4>
+    <ul id='groups'>
+      <h4>Groups</h4>
       <li><button type='button' class='btn'>Edit Groups</li>
-      <li><a href="#" id='all-todos'>View All</a></li>
-      <li><a href="#" id='no-group'>No Group</a></li>
-      ${myGroups
-        .map((item) => `<li><a href="#" id='${item}'>${item}</a></li>`)
-        .join('')}
+      <div id='group-options'>
+        <li><a href="#" id='all-todos' class='group'>View All</a></li>
+        <li><a href="#" id='no-group' class='group'>No Group</a></li>
+        ${myGroups
+          .map(
+            (item) =>
+              `<li><a href="#" id='${item.toLowerCase()}' class='group'>${item}</a></li>`,
+          )
+          .join('')}
+      </div>
     </ul>
   </nav>`;
 };
