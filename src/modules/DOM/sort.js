@@ -8,4 +8,5 @@ const sort = () => {
       </ul>
     </nav>`;
 };
+
 export default sort;
