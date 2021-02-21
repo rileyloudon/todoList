@@ -1,5 +1,5 @@
 let myTodos = [];
-const myGroups = ['Birthdays'];
+const myGroups = [{ groupName: 'Birthdays', groupColor: '#0dcaf0' }];
 let mySort = 'default';
 let viewingGroup = 'view all';
 

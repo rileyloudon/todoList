@@ -1,31 +1,29 @@
 import { myTodos, viewingGroup } from '../controllers/user-data';
 import timeLeft from '../controllers/time-left';
+import groupStyle from '../controllers/group-style';
 
 const renderTodo = () => {
   const displayTodo = document.getElementById('todos');
 
+  const renderDOM = (todo) => {
+    return `
+      <div id='render-todo' style='border: 1px solid ${groupStyle(todo)}'>
+        <p id='render-title' style='color:${groupStyle(todo)}'>${
+      todo.title
+    }</p> 
+        <p id='render-dueDate'>${timeLeft(todo)}</p> 
+        <p id='render-group' style='color:${groupStyle(todo)}'>${todo.group}</p>
+      </div>`;
+  };
+
   if (viewingGroup === 'view all') {
     displayTodo.innerHTML = `${myTodos
-      .map(
-        (todo) =>
-          `<div id='render-todo' class='${todo.group}'>
-          <p id='render-title'>${todo.title}</p> 
-          <p id='render-dueDate'>${timeLeft(todo)}</p> 
-          <p id='render-group'>${todo.group}</p>
-        </div>`,
-      )
+      .map((todo) => renderDOM(todo))
       .join('')}`;
   } else {
     displayTodo.innerHTML = `${myTodos
       .filter((todo) => todo.group === viewingGroup)
-      .map(
-        (todo) =>
-          `<div id='render-todo' class='${todo.group}'>
-        <p id='render-title'>${todo.title}</p> 
-        <p id='render-dueDate'>${timeLeft(todo)}</p> 
-        <p id='render-group'>${todo.group}</p>
-      </div>`,
-      )
+      .map((todo) => renderDOM(todo))
       .join('')}`;
   }
 };
