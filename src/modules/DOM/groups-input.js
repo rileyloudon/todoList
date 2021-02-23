@@ -6,6 +6,8 @@ const createGroupForm = () => {
       <input type='text' id='add-group' name='add-group' placeholder='Group Name' required>
     </div>
 
+    <label for='color-picker' id='group-color-helper'>Group Color:</label>
+    
     <div id='group-color'>
       <input type='color' id='color-picker' value='#${Math.floor(
         Math.random() * 16777215,
