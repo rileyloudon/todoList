@@ -3,6 +3,7 @@
 :root {
   --dark-main-color: #eee;
   --dark-secondary-color: #2c2c2c;
+  --dark-red: #d92114;
 
   --light-main-color: #343332;
   --light-secondary-color: #eee;
@@ -239,6 +240,12 @@ header {
 
 /* Created Groups */
 #render-group {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    'title color'
+    'title delete';
   margin: auto;
   margin-top: 25px;
   font-size: 1em;
@@ -249,6 +256,30 @@ header {
 }
 
 #render-group-title {
+  grid-area: title;
   font-size: 1.25em;
   margin: auto;
+}
+
+#render-group label {
+  height: fit-content;
+  grid-area: color;
+  padding: 2px 6px 3px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input#render-group-color {
+  margin: auto;
+  grid-area: color;
+  visibility: hidden;
+}
+
+#delete-group {
+  grid-area: delete;
+  border-radius: 4px;
+  color: var(--dark-red);
+  background-color: transparent;
+  border: 1px solid var(--dark-red);
+  margin-top: 7.5px;
 }
