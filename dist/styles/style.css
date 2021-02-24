@@ -2,7 +2,7 @@
 
 :root {
   --dark-main-color: #eee;
-  --dark-secondary-color: #343332;
+  --dark-secondary-color: #2c2c2c;
 
   --light-main-color: #343332;
   --light-secondary-color: #eee;
@@ -80,11 +80,13 @@ header {
   grid-area: title;
 }
 
-#title label {
+#title label,
+#group-title label {
   margin: 5px;
 }
 
-#todo-title {
+#todo-title,
+#add-group {
   width: 100%;
   border: 1px solid var(--dark-main-color);
   border-radius: 4px;
@@ -126,35 +128,40 @@ header {
   padding-left: 5px;
 }
 
-#todo-submit {
+#todo-submit,
+#group-submit-btn {
   border: none;
   width: 100%;
   height: 100%;
   border-radius: 4px;
 }
 
-#todo-submit span {
+#todo-submit span,
+#group-submit span {
   color: var(--bs-teal);
   font-size: 2.5rem;
 }
 
 #todo-form input,
+#group-form input,
 #todo-form select,
-#todo-form button {
+#todo-form button,
+#group-form button {
   color: var(--dark-main-color);
   padding: 8px;
   background: transparent;
 }
 
 #todo-form ::placeholder,
+#group-form ::placeholder,
 #todo-form select,
-#todo-form button {
+#todo-form button,
+#group-form button {
   color: var(--dark-main-color);
 }
 
 /* Todo Items */
 #render-todo {
-  border: 1px solid var(--dark-main-color);
   display: grid;
   grid-template-columns: 1.7fr 0.3fr;
   grid-template-rows: 1fr 1fr;
@@ -172,7 +179,7 @@ header {
 
 #render-title {
   grid-area: title;
-  font-size: 1.75em;
+  font-size: 1.5em;
   margin: auto;
 }
 
@@ -182,17 +189,66 @@ header {
   color: var(--bs-teal);
 }
 
-#render-group {
+#render-todo-group {
   grid-area: group;
   margin: auto;
 }
 
-/* Group Colors */
-#render-todo.Birthdays {
-  border: 1px solid var(--bs-info);
-  color: var(--bs-info);
+/* Edit Groups */
+#group-form {
+  margin: auto;
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr 0.5fr;
+  grid-template-rows: 0.5fr 0.5fr;
+  grid-template-areas:
+    'title title right'
+    'label color right';
+  font-size: 1em;
+  border: 1px solid var(--dark-main-color);
+  border-radius: 4px;
+  padding: 8px;
+  width: 66vw;
+  max-width: 450px;
 }
 
-#render-todo.Birthdays #render-group {
-  color: var(--bs-info);
+#group-title {
+  grid-area: title;
+}
+
+#group-color-helper {
+  margin: auto;
+  grid-area: label;
+}
+
+#group-color {
+  grid-area: color;
+}
+
+#color-picker {
+  width: 100%;
+  height: 42px;
+}
+
+#group-submit {
+  grid-area: right;
+  display: flex;
+  justify-content: center;
+  padding-left: 5px;
+}
+
+/* Created Groups */
+#render-group {
+  margin: auto;
+  margin-top: 25px;
+  font-size: 1em;
+  border-radius: 4px;
+  padding: 6px;
+  width: 66vw;
+  max-width: 450px;
+}
+
+#render-group-title {
+  font-size: 1.25em;
+  margin: auto;
 }
