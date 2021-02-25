@@ -1,14 +1,16 @@
 import { myGroups } from '../controllers/user-data';
 
 const renderGroups = () => {
-  return `${myGroups
+  const displayGroups = document.getElementById('user-groups');
+
+  displayGroups.innerHTML = `${myGroups
     .map(
       (group) => `
-      <div id='render-group' style='border: 1px solid ${group.groupColor}'>
-        <p id='render-group-title'>${group.groupName}</p>
+      <div class='render-group' style='border: 1px solid ${group.groupColor}'>
+        <p class='render-group-title'>${group.groupName}</p>
         <label for='render-group-color' style='color:${group.groupColor}; border:1px solid ${group.groupColor}'>Change Color</label>
-        <input type='color' id='render-group-color' value='${group.groupColor}'>
-        <button id='delete-group'>Delete Group</button>
+        <input type='color' id='render-group-color' class='${group.groupName}' value='${group.groupColor}'>
+        <button class='delete-group'>Delete Group</button>
       </div>`,
     )
     .join('')}`;
