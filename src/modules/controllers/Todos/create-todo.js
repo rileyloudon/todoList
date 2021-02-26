@@ -1,5 +1,5 @@
-import { myTodos } from './user-data';
-import renderTodo from '../DOM/render-todo';
+import { myTodos } from '../user-data';
+import renderTodo from '../../DOM/Todos/render-todo';
 
 const createTodo = () => {
   class Todo {

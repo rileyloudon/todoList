@@ -1,6 +1,6 @@
-import { myTodos, viewingGroup } from '../controllers/user-data';
-import timeLeft from '../controllers/time-left';
-import groupStyle from '../controllers/group-style';
+import { myTodos, viewingGroup } from '../../controllers/user-data';
+import timeLeft from '../../controllers/Todos/time-left';
+import groupStyle from '../../controllers/Todos/group-style';
 
 const renderTodo = () => {
   const displayTodo = document.getElementById('todos');
@@ -12,7 +12,9 @@ const renderTodo = () => {
       todo.title
     }</p> 
         <p id='render-dueDate'>${timeLeft(todo)}</p> 
-        <p id='render-group' style='color:${groupStyle(todo)}'>${todo.group}</p>
+        <p id='render-todo-group' style='color:${groupStyle(todo)}'>${
+      todo.group
+    }</p>
       </div>`;
   };
 

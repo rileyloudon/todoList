@@ -1,4 +1,5 @@
-import validGroup from '../controllers/valid-group';
+import back from '../../controllers/Groups/back';
+import validGroup from '../../controllers/Groups/valid-group';
 import createGroupForm from './groups-input';
 import groupsNavbar from './groups-navbar';
 import renderGroups from './render-groups';
@@ -16,8 +17,11 @@ const editGroups = () => {
 
   renderGroups();
 
-  const newGroup = document.getElementById('group-submit-btn');
-  newGroup.addEventListener('click', validGroup);
+  const createNewGroup = document.getElementById('group-submit-btn');
+  createNewGroup.addEventListener('click', validGroup);
+
+  const backBtn = document.getElementById('back');
+  backBtn.addEventListener('click', back);
 };
 
 export default editGroups;

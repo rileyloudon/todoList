@@ -1,5 +1,5 @@
 import sort from './sort';
-import groups from './groups';
+import groups from '../Groups/groups';
 
 const navbar = () => {
   return `

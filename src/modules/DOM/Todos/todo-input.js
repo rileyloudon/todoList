@@ -1,4 +1,4 @@
-import { myGroups } from '../controllers/user-data';
+import { myGroups } from '../../controllers/user-data';
 
 const createTodoForm = () => {
   return `
@@ -16,7 +16,10 @@ const createTodoForm = () => {
       <select id='todo-group' class='form-select'>
         <option value='No Group' selected>Select Group</option>
         ${myGroups
-          .map((item) => `<option value='${item}'>${item}</option>`)
+          .map(
+            (item) =>
+              `<option value='${item.groupName}'>${item.groupName}</option>`,
+          )
           .join('')}
       </select>
     </div>

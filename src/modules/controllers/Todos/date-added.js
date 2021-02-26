@@ -1,5 +1,5 @@
-import renderTodo from '../DOM/render-todo';
-import { mySort, myTodos } from './user-data';
+import renderTodo from '../../DOM/Todos/render-todo';
+import { mySort, myTodos } from '../user-data';
 
 const dateAdded = () => {
   const normalSort = () => {

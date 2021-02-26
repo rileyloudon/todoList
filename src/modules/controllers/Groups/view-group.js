@@ -1,5 +1,5 @@
-import renderTodo from '../DOM/render-todo';
-import { viewingGroup } from './user-data';
+import renderTodo from '../../DOM/Todos/render-todo';
+import { viewingGroup } from '../user-data';
 
 const viewGroup = (e) => {
   if (e.target.innerHTML === 'View All') {

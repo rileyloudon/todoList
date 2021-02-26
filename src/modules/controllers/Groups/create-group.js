@@ -1,5 +1,5 @@
-import { myGroups } from './user-data';
-import renderGroups from '../DOM/render-groups';
+import { myGroups } from '../user-data';
+import renderGroups from '../../DOM/Groups/render-groups';
 
 const createGroup = () => {
   class Group {
@@ -7,6 +7,18 @@ const createGroup = () => {
       this.groupName = groupName;
       this.groupColor = groupColor;
     }
+
+    deleteGroup() {
+      myGroups = myGroups.filter((e) => {
+        return e !== this;
+      });
+    }
+
+    changeColor(chosenColor) {
+      return (this.groupColor = chosenColor);
+    }
+
+    formatGroup() {}
   }
 
   let name = document.getElementById('add-group').value;
@@ -14,7 +26,7 @@ const createGroup = () => {
 
   const group = new Group(name, color);
 
-  myGroups.unshift(group);
+  myGroups.push(group);
   renderGroups();
 
   document.getElementById('group-form').reset();
