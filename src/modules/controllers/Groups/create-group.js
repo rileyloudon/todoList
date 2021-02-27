@@ -8,20 +8,26 @@ const createGroup = () => {
       this.groupColor = groupColor;
     }
 
-    deleteGroup() {
-      myGroups = myGroups.filter((e) => {
-        return e !== this;
-      });
-    }
-
     changeColor(chosenColor) {
       return (this.groupColor = chosenColor);
     }
 
-    formatGroup() {}
+    deleteGroup() {
+      myGroups = myGroups.filter((e) => e !== this);
+    }
+
+    humanizeGroupName() {
+      return this.groupName
+        .replace(/-/g, ' ')
+        .replace(/(?: |\b)(\w)/g, function(letter) {
+          return letter.toUpperCase();
+        });
+    }
   }
 
   let name = document.getElementById('add-group').value;
+  name = name.replace(/\s+/g, '-').toLowerCase();
+
   let color = document.getElementById('color-picker').value;
 
   const group = new Group(name, color);
