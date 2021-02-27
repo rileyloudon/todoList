@@ -1,5 +1,5 @@
-import navbar from './navbar';
-import createTodoForm from './todo-input';
+import navbar from './Todos/navbar';
+import createTodoForm from './Todos/todo-input';
 
 const initialLoad = () => {
   const container = document.getElementById('container');
