@@ -18,7 +18,7 @@ const renderTodo = () => {
       </div>`;
   };
 
-  if (viewingGroup === 'view all') {
+  if (viewingGroup === 'View All') {
     displayTodo.innerHTML = `${myTodos
       .map((todo) => renderDOM(todo))
       .join('')}`;
