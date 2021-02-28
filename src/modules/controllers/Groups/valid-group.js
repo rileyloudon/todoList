@@ -8,7 +8,10 @@ const validGroup = (e) => {
   let alreadyExists = false;
 
   myGroups.forEach((group) => {
-    if (groupTitle === group.groupName) {
+    if (
+      groupTitle === group.groupName ||
+      groupTitle === group.humanizeGroupName()
+    ) {
       alreadyExists = true;
     }
   });
