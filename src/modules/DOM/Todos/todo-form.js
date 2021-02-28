@@ -18,7 +18,9 @@ const createTodoForm = () => {
         ${myGroups
           .map(
             (item) =>
-              `<option value='${item.groupName}'>${item.groupName}</option>`,
+              `<option value='${
+                item.groupName
+              }'>${item.humanizeGroupName()}</option>`,
           )
           .join('')}
       </select>
