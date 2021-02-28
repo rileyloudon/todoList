@@ -1,5 +1,5 @@
 import deleteGroup from '../../controllers/Groups/delete-group';
-import newColor from '../../controllers/Groups/group-change-color';
+import newColor from '../../controllers/Groups/change-group-color';
 import { myGroups } from '../../controllers/user-data';
 
 const renderGroups = () => {
@@ -7,13 +7,13 @@ const renderGroups = () => {
 
   displayGroups.innerHTML = `${myGroups
     .map(
-      (group) => `
+      (group, i) => `
       <div class='render-group' style='border: 1px solid ${group.groupColor}'>
         <p class='render-group-title'>${group.humanizeGroupName()}</p>
-        <label for='${group.groupName}-group-color' style='color:${
+        <label for='${i}' style='color:${group.groupColor}; border:1px solid ${
         group.groupColor
-      }; border:1px solid ${group.groupColor}'>Change Color</label>
-        <input type='color' id='${group.groupName}-group-color' class='${
+      }'>Change Color</label>
+        <input type='color' id='${i}' class='${
         group.groupName
       } change-color' value='${group.groupColor}'>
         <button class='delete-group ${group.groupName}'>Delete Group</button>
