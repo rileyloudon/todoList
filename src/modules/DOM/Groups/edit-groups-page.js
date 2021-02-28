@@ -1,6 +1,6 @@
-import back from '../../controllers/Groups/back';
-import validGroup from '../../controllers/Groups/valid-group';
-import createGroupForm from './groups-input';
+import back from '../../controllers/Groups/go-back';
+import validGroup from '../../controllers/Groups/check-valid-group';
+import createGroupForm from './groups-form';
 import groupsNavbar from './groups-navbar';
 import renderGroups from './render-groups';
 
@@ -11,8 +11,7 @@ const editGroups = () => {
   const main = document.getElementById('main');
   main.innerHTML = `
     ${createGroupForm()}
-    <div id='user-groups'>
-    </div>
+    <div id='user-groups'></div>
     `;
 
   renderGroups();
