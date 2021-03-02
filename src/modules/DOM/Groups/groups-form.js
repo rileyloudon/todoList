@@ -1,17 +1,17 @@
+import randomColor from '../../controllers/Groups/random-color';
+
 const createGroupForm = () => {
   return `
   <form id='group-form'>
     <div id='group-title'>
       <label for='add-group'>Add Group</label>
-      <input type='text' id='add-group' name='add-group' placeholder='Group Name' required>
+      <input type='text' id='add-group' name='add-group' placeholder='Group Name' maxlength='12' required />
     </div>
 
     <label for='color-picker' id='group-color-helper'>Group Color:</label>
     
     <div id='group-color'>
-      <input type='color' id='color-picker' value='#${Math.floor(
-        Math.random() * 16777215,
-      ).toString(16)}'>
+      <input type='color' id='color-picker' value='#${randomColor()}' />
     </div>
 
     <div id='group-submit'>
