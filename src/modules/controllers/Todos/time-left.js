@@ -5,14 +5,19 @@ const timeLeft = (todo) => {
   if (todo.dueDate === '∞') {
     return (time = '∞');
   } else {
-    time = formatDistanceToNowStrict(todo.dueDate);
+    time = formatDistanceToNowStrict(todo.dueDate, { addSuffix: true });
+    console.log(time);
 
     let formatTime = time.split(' ');
-    let unit = '';
-    formatTime[1] === 'months' || formatTime[1] === 'month'
-      ? (unit = 'mo')
-      : (unit = formatTime[1][0]);
-    return formatTime[0] + unit;
+    if (formatTime[0] === 'in') {
+      let unit = '';
+      formatTime[2] === 'months' || formatTime[2] === 'month'
+        ? (unit = 'mo')
+        : (unit = formatTime[2][0]);
+      return formatTime[1] + unit;
+    } else {
+      return (time = 'Expired');
+    }
   }
 };
 
