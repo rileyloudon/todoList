@@ -3,7 +3,8 @@
 :root {
   --dark-main-color: #eee;
   --dark-secondary-color: #2c2c2c;
-  --dark-red: #d92114;
+  --dark-delete: #d12b1f;
+  --dark-green: #20c961;
 
   --light-main-color: #343332;
   --light-secondary-color: #eee;
@@ -26,16 +27,38 @@ body {
 
 /* Navigation */
 header {
+  margin: auto;
   max-width: 200px;
-  padding-right: 10px;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow: auto;
   flex: 33%;
+  text-align: center;
 }
 
 #sort {
   margin-top: 25px;
+}
+
+.sort-todos {
+  margin: 5px;
+  border-radius: 50px;
+}
+
+#groups-header {
+  margin-top: 25px;
+}
+
+.group-navbar {
+  border-radius: 50px;
+  margin: 5px;
+}
+
+.view-all-todos {
+  margin-bottom: 15px;
+}
+
+.default-border {
+  border: 1px solid var(--dark-main-color);
 }
 
 #sort,
@@ -57,6 +80,7 @@ header {
   margin: 5px 0 15px 0;
   color: var(--dark-main-color);
   border: 1px solid var(--dark-main-color);
+  border-radius: 4px;
 }
 
 /* Todo Form */
@@ -139,7 +163,7 @@ header {
 
 #todo-submit span,
 #group-submit span {
-  color: var(--bs-teal);
+  color: var(--dark-green);
   font-size: 2.5rem;
 }
 
@@ -162,13 +186,18 @@ header {
 }
 
 /* Todo Items */
-#render-todo {
+#todos {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.render-todo {
   display: grid;
-  grid-template-columns: 1.7fr 0.3fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: auto max-content;
+  grid-template-rows: auto auto;
   grid-template-areas:
     'title time'
-    'title group';
+    'title complete';
   margin: auto;
   width: 66vw;
   max-width: 650px;
@@ -176,23 +205,27 @@ header {
   border-radius: 4px;
   font-size: 1.1em;
   padding: 6px;
+  cursor: pointer;
 }
 
-#render-title {
+.render-title {
   grid-area: title;
   font-size: 1.5em;
   margin: auto;
 }
 
-#render-dueDate {
+.render-dueDate {
   grid-area: time;
   margin: auto;
-  color: var(--bs-teal);
+  color: var(--dark-green);
 }
 
-#render-todo-group {
-  grid-area: group;
+.complete-todo {
+  grid-area: complete;
   margin: auto;
+  background: transparent;
+  margin-top: 7.5px;
+  border-radius: 4px;
 }
 
 /* Edit Groups */
@@ -239,9 +272,14 @@ header {
 }
 
 /* Created Groups */
-#render-group {
+#user-groups {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.render-group {
   display: grid;
-  grid-template-columns: 1fr max-content;
+  grid-template-columns: auto max-content;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
     'title color'
@@ -255,13 +293,13 @@ header {
   max-width: 450px;
 }
 
-#render-group-title {
+.render-group-title {
   grid-area: title;
   font-size: 1.25em;
   margin: auto;
 }
 
-#render-group label {
+.render-group label {
   height: fit-content;
   grid-area: color;
   padding: 2px 6px 3px 6px;
@@ -269,17 +307,36 @@ header {
   cursor: pointer;
 }
 
-input#render-group-color {
+input.change-color {
   margin: auto;
   grid-area: color;
   visibility: hidden;
 }
 
-#delete-group {
+.delete-group {
   grid-area: delete;
   border-radius: 4px;
-  color: var(--dark-red);
+  color: var(--dark-delete);
   background-color: transparent;
-  border: 1px solid var(--dark-red);
+  border: 1px solid var(--dark-delete);
   margin-top: 7.5px;
+}
+
+/* Back Button */
+#back {
+  margin-left: 32px;
+  margin-top: 25px;
+  border: 1px solid var(--dark-main-color);
+  border-radius: 4px;
+  color: var(--dark-main-color);
+  background: transparent;
+}
+
+#back .icons {
+  float: left;
+  margin-right: 5px;
+  padding-top: 2px;
+  position: relative;
+  z-index: 1;
+  font-size: 20px;
 }
