@@ -159,6 +159,10 @@ header {
   width: 100%;
   height: 100%;
   border-radius: 4px;
+  user-select: none;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
 }
 
 #todo-submit span,
@@ -191,6 +195,16 @@ header {
   flex-flow: row wrap;
 }
 
+#todos .render-todo-container {
+  margin: auto;
+  margin-top: 25px;
+  cursor: pointer;
+  user-select: none;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
 .render-todo {
   display: grid;
   grid-template-columns: auto max-content;
@@ -201,11 +215,9 @@ header {
   margin: auto;
   width: 66vw;
   max-width: 650px;
-  margin-top: 25px;
   border-radius: 4px;
   font-size: 1.1em;
   padding: 6px;
-  cursor: pointer;
 }
 
 .render-title {
@@ -226,6 +238,25 @@ header {
   background: transparent;
   margin-top: 7.5px;
   border-radius: 4px;
+}
+
+.todo-more-info {
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto auto;
+  margin: auto;
+  border-radius: 4px;
+}
+
+.mi-group,
+.group-data,
+.mi-due-date,
+.due-date-data,
+.mi-date-added,
+.date-added-data {
+  margin: 0;
+  width: 100%;
+  text-align: center;
+  padding: 8px;
 }
 
 /* Edit Groups */
