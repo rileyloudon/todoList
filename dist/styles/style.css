@@ -305,6 +305,19 @@ header {
   max-width: 450px;
 }
 
+#group-form-error {
+  margin: auto;
+  border: 1px solid var(--dark-main-color);
+  border-top: none;
+  border-radius: 4px;
+  padding-left: 8px;
+  width: 66vw;
+  max-width: 450px;
+
+  animation: growDown 200ms ease-in-out forwards;
+  transform-origin: top center;
+}
+
 #group-title {
   grid-area: title;
 }
