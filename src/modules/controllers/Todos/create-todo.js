@@ -42,7 +42,7 @@ const createTodo = () => {
   let dateAdded = new Date();
 
   let todoDueDate = document.getElementById('todo-date').value;
-  let todoDueTime = ' 00:00';
+  let todoDueTime = document.getElementById('todo-time').value;
 
   let todoGroup = document.getElementById('todo-group').value;
 
@@ -54,7 +54,7 @@ const createTodo = () => {
   const todo = new Todo(
     todoName,
     dateAdded,
-    todoDueDate === '' ? '∞' : new Date(todoDueDate + todoDueTime),
+    todoDueDate === '' ? '∞' : new Date(todoDueDate + ' ' + todoDueTime),
     todoGroup,
   );
 
@@ -63,7 +63,5 @@ const createTodo = () => {
 
   document.getElementById('todo-form').reset();
 };
-
-// format(new Date(), 'PPP')
 
 export default createTodo;
