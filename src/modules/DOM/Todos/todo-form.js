@@ -12,6 +12,10 @@ const createTodoForm = () => {
       <input type='date' id='todo-date' name='todo-date' placeholder='yyyy/mm/dd'>
     </div>
 
+    <div id='time'>
+      <input type='time' id='todo-time' name='todo-time' placeholder='00:00'>
+    </div>
+
     <div id='group'>
       <select id='todo-group' class='form-select'>
         <option value='No Group' selected>Select Group</option>
@@ -33,6 +37,9 @@ const createTodoForm = () => {
         </span></button>
     </div>
   </form>
+  <div id='todo-form-error'>
+    <p class='error-text'>Error</p>
+  </div>
   `;
 };
 
