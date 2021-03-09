@@ -1,15 +1,27 @@
 import renderGroups from '../../DOM/Groups/render-groups';
-import { myGroups } from '../user-data';
+import { myGroups, myTodos } from '../user-data';
 
 const deleteGroup = (item) => {
-  console.log(item);
-  myGroups.forEach((createdGroup) => {
-    if (item.classList.contains(createdGroup.groupName)) {
-      createdGroup.deleteGroup();
+  const deletedGroup = item.classList[1];
+
+  const showWarning = () => {
+    const warningElement = document.getElementsByClassName(
+      `group-warning ${deletedGroup}`,
+    )[0];
+
+    warningElement.style.display = 'grid';
+  };
+
+  myGroups.forEach((group) => {
+    if (deletedGroup === group.groupName) {
+      if (
+        myTodos.length > 0 &&
+        myTodos.some((todo) => deletedGroup === todo.group)
+      ) {
+        showWarning();
+      } else group.deleteGroup(), renderGroups();
     }
   });
-
-  renderGroups();
 };
 
 export default deleteGroup;
