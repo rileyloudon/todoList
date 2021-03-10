@@ -1,5 +1,6 @@
 import { myGroups } from '../user-data';
 import renderGroups from '../../DOM/Groups/render-groups';
+import randomColor from './random-color';
 
 const createGroup = () => {
   class Group {
@@ -18,15 +19,19 @@ const createGroup = () => {
 
     humanizeGroupName() {
       return this.groupName
-        .replace(/-/g, ' ')
-        .replace(/(?: |\b)(\w)/g, function(letter) {
-          return letter.toUpperCase();
-        });
+        .replace(/%20/g, ' ')
+        .replace(/%27/g, "'")
+        .replace(/(\b[a-z](?=[a-z]{2})|^[a-z])/g, (letter) =>
+          letter.toUpperCase(),
+        );
     }
   }
 
   let name = document.getElementById('add-group').value;
-  name = name.replace(/\s+/g, '-').toLowerCase();
+  name = name
+    .replace(/\s+/g, '%20')
+    .replace(/[']+/g, '%27')
+    .toLowerCase();
 
   let color = document.getElementById('color-picker').value;
 
@@ -36,6 +41,7 @@ const createGroup = () => {
   renderGroups();
 
   document.getElementById('group-form').reset();
+  document.querySelector('input[type=color]').value = `#${randomColor()}`;
 };
 
 export default createGroup;
