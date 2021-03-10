@@ -42,7 +42,7 @@ const createTodo = () => {
   let dateAdded = new Date();
 
   let todoDueDate = document.getElementById('todo-date').value;
-  let todoDueTime = document.getElementById('todo-time').value;
+  let todoDueTime = document.getElementById('todo-time').value || '00:00';
 
   let todoGroup = document.getElementById('todo-group').value;
 
