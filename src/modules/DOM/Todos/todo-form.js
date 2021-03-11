@@ -13,7 +13,7 @@ const createTodoForm = () => {
     </div>
 
     <div id='time'>
-      <input type='time' id='todo-time' name='todo-time' placeholder='00:00'>
+      <input type='time' id='todo-time' name='todo-time' placeholder='00:00' value='00:00'>
     </div>
 
     <div id='group'>
@@ -37,10 +37,7 @@ const createTodoForm = () => {
         </span></button>
     </div>
   </form>
-  <div id='todo-form-error'>
-    <p class='error-text'>Error</p>
-  </div>
-  `;
+  <div id='todo-form-error' style='display: none'></div>`;
 };
 
 export default createTodoForm;
