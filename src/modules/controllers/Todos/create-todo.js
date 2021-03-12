@@ -35,6 +35,7 @@ const createTodo = () => {
 
   let todoName = document.getElementById('todo-title').value;
   todoName = todoName
+    .trim()
     .replace(/\s+/g, '%20')
     .replace(/[']+/g, '%27')
     .toLowerCase();

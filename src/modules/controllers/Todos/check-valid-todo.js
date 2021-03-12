@@ -1,12 +1,12 @@
 import { isAfter, parseISO } from 'date-fns';
-import todoFormError from '../../DOM/Todos/todo-form-error';
+import todoFormError from '../../DOM/Todos/todo-error-handler';
 import { myTodos } from '../user-data';
 import createTodo from './create-todo';
 
 const validTodo = (e) => {
   e.preventDefault();
 
-  const todoName = document.getElementById('todo-title').value;
+  const todoName = document.getElementById('todo-title').value.trim();
 
   const testDate = document.getElementById('todo-date').value;
   const compareDate = testDate.replace(/\/|\./g, '-');
