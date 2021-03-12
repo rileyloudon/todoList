@@ -11,8 +11,16 @@ const renderTodo = () => {
   const renderDOM = (todo) => {
     const getStyle = groupStyle(todo);
     const getTimeLeft = timeLeft(todo);
-    const timeLeftColor =
-      getTimeLeft === 'Expired' ? 'var(--dark-delete)' : 'var(--dark-green)';
+
+    const timeLeftColor = window.matchMedia('(prefers-color-scheme: light)')
+      .matches
+      ? getTimeLeft === 'Expired'
+        ? 'var(--light-delete)'
+        : 'var(--light-green)'
+      : getTimeLeft === 'Expired'
+      ? 'var(--dark-delete)'
+      : 'var(--dark-green)';
+
     const miDueDate = todo.dueDate === '∞' ? '∞' : format(todo.dueDate, 'PPp');
 
     return `
