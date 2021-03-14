@@ -1,6 +1,15 @@
 import { myGroups } from '../../controllers/user-data';
 
 const createTodoForm = () => {
+  // Default todo due date
+  let todayDate = new Date().getDate() + 1;
+  todayDate = todayDate < 1 ? '0' + todayDate : todayDate;
+
+  let todayMonth = new Date().getMonth() + 1;
+  todayMonth = todayMonth < 10 ? '0' + todayMonth : todayMonth;
+
+  const todayYear = new Date().getFullYear();
+
   return `
   <form id='todo-form'>
     <div id='title'>
@@ -9,7 +18,7 @@ const createTodoForm = () => {
     </div>
 
     <div id='date'>
-      <input type='date' id='todo-date' name='todo-date' placeholder='yyyy/mm/dd'>
+      <input type='date' id='todo-date' name='todo-date' placeholder='yyyy/mm/dd' value='${todayYear}-${todayMonth}-${todayDate}'>
     </div>
 
     <div id='time'>
