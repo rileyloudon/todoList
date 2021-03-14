@@ -45,6 +45,9 @@ const createTodo = () => {
   let todoDueDate = document.getElementById('todo-date').value;
   let todoDueTime = document.getElementById('todo-time').value || '00:00';
 
+  todoDueDate = todoDueDate.split('-');
+  todoDueTime = todoDueTime.split(':');
+
   let todoGroup = document.getElementById('todo-group').value;
 
   todoGroup = todoGroup
@@ -55,7 +58,15 @@ const createTodo = () => {
   const todo = new Todo(
     todoName,
     dateAdded,
-    todoDueDate === '' ? '∞' : new Date(todoDueDate + ' ' + todoDueTime),
+    todoDueDate === ''
+      ? '∞'
+      : new Date(
+          todoDueDate[0],
+          todoDueDate[1] - 1,
+          todoDueDate[2],
+          todoDueTime[0],
+          todoDueTime[1],
+        ),
     todoGroup,
   );
 
