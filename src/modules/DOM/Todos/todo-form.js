@@ -27,7 +27,7 @@ const createTodoForm = () => {
 
     <div id='group'>
       <select id='todo-group' class='form-select'>
-        <option value='No Group' selected>Select Group</option>
+        <option value='No Group' selected>Group</option>
         ${myGroups
           .map(
             (item) =>
