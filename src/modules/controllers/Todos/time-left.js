@@ -6,9 +6,9 @@ const timeLeft = (todo) => {
     return (time = '∞');
   } else {
     time = formatDistanceToNowStrict(todo.dueDate, { addSuffix: true });
-    console.log(time);
 
     let formatTime = time.split(' ');
+
     if (formatTime[0] === 'in') {
       let unit = '';
       formatTime[2] === 'months' || formatTime[2] === 'month'

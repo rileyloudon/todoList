@@ -1,7 +1,6 @@
 import deleteGroup from '../../controllers/Groups/delete-group';
 import newColor from '../../controllers/Groups/change-group-color';
 import { myGroups } from '../../controllers/user-data';
-import cancelDelete from '../../controllers/Groups/cancel-delete-group';
 
 const renderGroups = () => {
   const displayGroups = document.getElementById('user-groups');
