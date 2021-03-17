@@ -20,7 +20,9 @@ const createGroupForm = () => {
           done
         </span></button>
     </div>
-  </form>`;
+  </form>
+  <div id='group-form-error' style='display: none'></div>
+  `;
 };
 
 export default createGroupForm;
