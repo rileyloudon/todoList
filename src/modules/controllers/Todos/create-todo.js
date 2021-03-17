@@ -58,7 +58,7 @@ const createTodo = () => {
   const todo = new Todo(
     todoName,
     dateAdded,
-    todoDueDate === ''
+    todoDueDate[0] === ''
       ? '∞'
       : new Date(
           todoDueDate[0],
