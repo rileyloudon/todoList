@@ -1,4 +1,5 @@
 import renderTodo from '../../DOM/Todos/render-todo';
+import closeNavbar from '../close-navbar';
 import { mySort, myTodos } from '../user-data';
 
 const dateAdded = () => {
@@ -15,6 +16,8 @@ const dateAdded = () => {
   };
 
   mySort === 'date-added' ? reverseSort() : normalSort();
+
+  if (window.matchMedia('(max-width: 600px)').matches) closeNavbar();
 };
 
 export default dateAdded;
