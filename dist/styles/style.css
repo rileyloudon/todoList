@@ -25,16 +25,31 @@ body {
 
 #main {
   margin: auto;
+  margin-left: 152px;
+}
+
+#reorder{
+  display: none;
 }
 
 /* Navigation */
 header {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  overflow-y: scroll;
   margin: auto;
   max-width: 200px;
   white-space: nowrap;
   overflow: auto;
-  flex: 33%;
   text-align: center;
+  background-color: var(--dark-secondary-color);
+
+  transition: 0.2s;
+}
+
+#close{
+  display: none;
 }
 
 #sort {
@@ -68,8 +83,8 @@ header {
   list-style-type: none;
 }
 
-#sort h3,
-#groups h3 {
+#sort h4,
+#groups h4 {
   margin: 5px;
 }
 
@@ -90,7 +105,7 @@ header {
   margin: auto;
   margin-top: 25px;
   display: grid;
-  grid-template-columns: 0.5fr 0.5fr 0.75fr 0.4fr;
+  grid-template-columns: 1fr 1fr 1fr 0.5fr;
   grid-template-rows: auto auto;
   grid-template-areas:
     'title title title right'
@@ -149,7 +164,10 @@ header {
   border: 1px solid var(--dark-main-color);
   width: 100%;
   border-radius: 4px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
+
 
 #time {
   grid-area: time;
@@ -251,6 +269,9 @@ header {
   grid-area: title;
   font-size: 1.5em;
   margin: auto;
+  text-align: center;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 .render-dueDate {
@@ -264,12 +285,15 @@ header {
   margin: auto;
   background: transparent;
   margin-top: 7.5px;
+  margin-left: 7.5px;
   border-radius: 4px;
 }
 
 .todo-more-info {
   grid-template-columns: auto auto;
   grid-template-rows: auto auto auto;
+  width: 66vw;
+  max-width: 550px;
   margin: auto;
   border-radius: 4px;
 
@@ -289,7 +313,7 @@ header {
   padding: 8px;
 }
 
-/* Edit Groups */
+/* Group Page */
 #group-form {
   margin: auto;
   margin-top: 25px;
@@ -347,7 +371,27 @@ header {
   padding-left: 5px;
 }
 
-/* Created Groups */
+#back {
+  float: left;  
+  margin-left: -120px;
+  margin-top: 25px;
+  border: 1px solid var(--dark-main-color);
+  border-radius: 4px;
+  color: var(--dark-main-color);
+  background: transparent;
+}
+
+#back .icons {
+  float: left;
+  margin-right: 5px;
+  padding-top: 2px;
+  position: relative;
+  z-index: 1;
+  font-size: 20px;
+}
+
+
+/* User Groups */
 #user-groups {
   display: flex;
   flex-flow: row wrap;
@@ -378,6 +422,9 @@ header {
   grid-area: title;
   font-size: 1.25em;
   margin: auto;
+  text-align: center;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 .render-group label {
@@ -391,7 +438,7 @@ header {
 input.change-color {
   margin: auto;
   grid-area: color;
-  visibility: hidden;
+  opacity: 0;
 }
 
 .delete-group {
@@ -455,25 +502,6 @@ input.change-color {
   height: max-content;
 }
 
-/* Back Button */
-#back {
-  margin-left: 32px;
-  margin-top: 25px;
-  border: 1px solid var(--dark-main-color);
-  border-radius: 4px;
-  color: var(--dark-main-color);
-  background: transparent;
-}
-
-#back .icons {
-  float: left;
-  margin-right: 5px;
-  padding-top: 2px;
-  position: relative;
-  z-index: 1;
-  font-size: 20px;
-}
-
 /* Animation */
 @keyframes growDown {
   0% {
@@ -487,6 +515,10 @@ input.change-color {
 @media (prefers-color-scheme: light) {
   body {
     color: var(--light-main-color);
+    background-color: var(--light-secondary-color);
+  }
+
+  header{
     background-color: var(--light-secondary-color);
   }
 
@@ -550,5 +582,153 @@ input.change-color {
   .delete-all {
     color: var(--light-delete);
     border: 1px solid var(--light-delete);
+  }
+}
+
+/* Media Queries */
+@media (max-width: 600px){
+  #main {
+    margin-left: 0;
+  }
+
+  header {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+  }
+
+  .sort-todos, .group-navbar, #edit-groups{
+    font-size: .85em;
+  }
+
+  h4{
+    font-size: .95em;
+  }
+
+  #reorder{
+    display: block;
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 3px;
+    cursor: pointer;
+  }
+
+  #close{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+
+  #sort{
+    padding-top: 15px;
+  }
+  
+  #sort, #groups{
+    padding-left: 0;
+  }
+
+  #todo-form, #group-form {
+    width: 95vw;
+    font-size: 0.85em;
+    margin-top: 15px;
+  }
+
+  #group-form{
+    clear: both;
+  }
+
+  #back{
+    margin-bottom: 15px;
+    margin-left: 25px;
+    font-size: .85em;
+  }
+
+  #back .icons{
+    font-size: 18px;
+  }
+
+  #add {
+    padding-top: 24px;
+  }
+
+  #todo-submit span {
+    font-size: 2rem;
+  }
+
+  .form-select {
+    font-size: inherit;
+  }
+
+  .render-todo {
+    font-size: 0.9em;
+  }
+
+  .render-title, .render-group-title {
+    font-size: 1.1em;
+  }
+
+  .complete-todo {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .mi-group,
+  .group-data,
+  .mi-due-date,
+  .due-date-data,
+  .mi-date-added,
+  .date-added-data {
+    font-size: 0.9em;
+  }
+
+  .render-group-container{
+    margin-top: 0;
+  }
+
+  .render-group label, .delete-group {
+    font-size: .9em;
+  }
+
+  .delete-group{
+    padding: 2px 6px 3px 6px;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+  #todo-form, #group-form {
+    font-size: 0.78em;
+  }
+
+  .render-title, .render-group-title {
+    font-size: 1em;
+  }
+
+  .mi-group,
+  .group-data,
+  .mi-due-date,
+  .due-date-data,
+  .mi-date-added,
+  .date-added-data {
+    font-size: 0.75em;
+  }
+
+  .render-group label, .delete-group {
+    font-size: .8em;
+  }
+
+  #back{
+    font-size: .78em;
+  }
+
+  #back .icons{
+    font-size: 14px;
   }
 }
