@@ -1,4 +1,4 @@
-import { isAfter, parseISO } from 'date-fns';
+import { isFuture, parseISO } from 'date-fns';
 import todoFormError from '../../DOM/Todos/todo-error-handler';
 import { myTodos } from '../user-data';
 import createTodo from './create-todo';
@@ -25,7 +25,7 @@ const validTodo = (e) => {
   });
 
   todoName !== ''
-    ? isAfter(parseISO(compareDate), new Date()) || testDate === ''
+    ? isFuture(parseISO(compareDate)) || testDate === ''
       ? timeRegex.test(testTime) || testTime === ''
         ? !alreadyExists
           ? (createTodo(), (errorBox.style.display = 'none'))
