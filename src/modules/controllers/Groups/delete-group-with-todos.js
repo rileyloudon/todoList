@@ -11,5 +11,6 @@ const deleteAll = (deletedGroup) => {
   });
 
   renderGroups();
+  localStorage.setItem('userGroups', JSON.stringify(myGroups));
 };
 export default deleteAll;
