@@ -9,6 +9,7 @@ const completeTodo = (btn) => {
   });
 
   renderTodo();
+  localStorage.setItem('userTodos', JSON.stringify(myTodos));
 };
 
 export default completeTodo;
