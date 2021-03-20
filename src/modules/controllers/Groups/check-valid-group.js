@@ -5,7 +5,7 @@ import createGroup from './create-group';
 const validGroup = (e) => {
   e.preventDefault();
 
-  const groupTitle = document.getElementById('add-group').value;
+  const groupTitle = document.getElementById('add-group').value.trim();
   let groupAlreadyExists = false;
 
   const groupErrorBox = document.getElementById('group-form-error');
