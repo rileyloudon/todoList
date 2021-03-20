@@ -1,38 +1,8 @@
 import { myTodos } from '../user-data';
 import renderTodo from '../../DOM/Todos/render-todo';
+import Todo from './class-Todo';
 
 const createTodo = () => {
-  class Todo {
-    constructor(name, dateAdded, dueDate, group) {
-      this.name = name;
-      this.dateAdded = dateAdded;
-      this.dueDate = dueDate;
-      this.group = group;
-    }
-
-    completeTodo() {
-      myTodos = myTodos.filter((e) => e !== this);
-    }
-
-    humanizeTodoName() {
-      return this.name
-        .replace(/%20/g, ' ')
-        .replace(/%27/g, "'")
-        .replace(/(\b[a-z](?=[a-z]{2})|^[a-z])/g, (letter) =>
-          letter.toUpperCase(),
-        );
-    }
-
-    humanizeTodoGroup() {
-      return this.group
-        .replace(/%20/g, ' ')
-        .replace(/%27/g, "'")
-        .replace(/(\b[a-z](?=[a-z]{2})|^[a-z])/g, (letter) =>
-          letter.toUpperCase(),
-        );
-    }
-  }
-
   let todoName = document.getElementById('todo-title').value;
   todoName = todoName
     .trim()
@@ -74,6 +44,7 @@ const createTodo = () => {
   renderTodo();
 
   document.getElementById('todo-form').reset();
+  localStorage.setItem('userTodos', JSON.stringify(myTodos));
 };
 
 export default createTodo;
