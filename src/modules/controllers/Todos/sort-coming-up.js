@@ -1,4 +1,5 @@
 import renderTodo from '../../DOM/Todos/render-todo';
+import closeNavbar from '../close-navbar';
 import { mySort, myTodos } from '../user-data';
 
 const comingUp = () => {
@@ -24,6 +25,8 @@ const comingUp = () => {
   };
 
   mySort === 'coming-up' ? reverseSort() : normalSort();
+
+  if (window.matchMedia('(max-width: 600px)').matches) closeNavbar();
 };
 
 export default comingUp;
