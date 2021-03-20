@@ -278,6 +278,7 @@ header {
   grid-area: time;
   margin: auto;
   color: var(--dark-green);
+  padding-left: 7.5px;
 }
 
 .complete-todo {
