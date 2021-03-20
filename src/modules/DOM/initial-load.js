@@ -1,12 +1,14 @@
 import navbar from './Todos/navbar';
-import createTodoForm from './Todos/todo-input';
+import createTodoForm from './Todos/todo-form';
 
 const initialLoad = () => {
   const container = document.getElementById('container');
   container.innerHTML = `
   <div class='row'>
     <div class="col-auto">
+      <span class="material-icons" id='reorder'>reorder</span>
       <header id='navbar'>
+        <span class="material-icons" id='close'>close</span>        
         ${navbar()}
       </header>
     </div>
@@ -18,7 +20,6 @@ const initialLoad = () => {
     </div
   </div>
   `;
-  // Display saved todos in default view
 };
 
 export default initialLoad;
