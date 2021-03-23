@@ -1,6 +1,32 @@
 import { myTodos } from '../user-data';
 import renderTodo from '../../DOM/Todos/render-todo';
-import Todo from './class-Todo';
+
+class Todo {
+  constructor(name, dateAdded, dueDate, group) {
+    this.name = name;
+    this.dateAdded = dateAdded;
+    this.dueDate = dueDate;
+    this.group = group;
+  }
+
+  humanizeTodoName() {
+    return this.name
+      .replace(/%20/g, ' ')
+      .replace(/%27/g, "'")
+      .replace(/(\b[a-z](?=[a-z]{2})|^[a-z])/g, (letter) =>
+        letter.toUpperCase()
+      );
+  }
+
+  humanizeTodoGroup() {
+    return this.group
+      .replace(/%20/g, ' ')
+      .replace(/%27/g, "'")
+      .replace(/(\b[a-z](?=[a-z]{2})|^[a-z])/g, (letter) =>
+        letter.toUpperCase()
+      );
+  }
+}
 
 const createTodo = () => {
   let todoName = document.getElementById('todo-title').value;
@@ -10,7 +36,7 @@ const createTodo = () => {
     .replace(/[']+/g, '%27')
     .toLowerCase();
 
-  let dateAdded = new Date();
+  const dateAdded = new Date();
 
   let todoDueDate = document.getElementById('todo-date').value;
   let todoDueTime = document.getElementById('todo-time').value || '00:00';
@@ -35,9 +61,9 @@ const createTodo = () => {
           todoDueDate[1] - 1,
           todoDueDate[2],
           todoDueTime[0],
-          todoDueTime[1],
+          todoDueTime[1]
         ),
-    todoGroup,
+    todoGroup
   );
 
   myTodos.unshift(todo);
@@ -47,4 +73,4 @@ const createTodo = () => {
   localStorage.setItem('userTodos', JSON.stringify(myTodos));
 };
 
-export default createTodo;
+export { createTodo, Todo };
