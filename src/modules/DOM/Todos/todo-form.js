@@ -3,10 +3,10 @@ import { myGroups } from '../../controllers/user-data';
 const createTodoForm = () => {
   // Default todo due date
   let todayDate = new Date().getDate() + 1;
-  todayDate = todayDate < 1 ? '0' + todayDate : todayDate;
+  todayDate = todayDate < 1 ? `0${todayDate}` : todayDate;
 
   let todayMonth = new Date().getMonth() + 1;
-  todayMonth = todayMonth < 10 ? '0' + todayMonth : todayMonth;
+  todayMonth = todayMonth < 10 ? `0${todayMonth}` : todayMonth;
 
   const todayYear = new Date().getFullYear();
 
@@ -33,7 +33,7 @@ const createTodoForm = () => {
             (item) =>
               `<option value='${
                 item.groupName
-              }'>${item.humanizeGroupName()}</option>`,
+              }'>${item.humanizeGroupName()}</option>`
           )
           .join('')}
       </select>

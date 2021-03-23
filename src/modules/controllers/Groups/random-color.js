@@ -8,16 +8,16 @@ const randomColor = () => {
   const g = randomBetween(50, 255);
   const b = randomBetween(50, 255);
 
-  function RGBToHex(r, g, b) {
-    r = r.toString(16);
-    g = g.toString(16);
-    b = b.toString(16);
+  function RGBToHex(red, green, blue) {
+    let redString = red.toString(16);
+    let greenString = green.toString(16);
+    let blueString = blue.toString(16);
 
-    if (r.length == 1) r = '0' + r;
-    if (g.length == 1) g = '0' + g;
-    if (b.length == 1) b = '0' + b;
+    if (redString.length === 1) redString = `0${r}`;
+    if (greenString.length === 1) greenString = `0${g}`;
+    if (blueString.length === 1) blueString = `0${b}`;
 
-    return r + g + b;
+    return redString + greenString + blueString;
   }
   return RGBToHex(r, g, b);
 };

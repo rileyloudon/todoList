@@ -1,8 +1,8 @@
 import renderGroups from '../../DOM/Groups/render-groups';
 import showWarning from '../../DOM/Groups/show-delete-warning';
-import { myGroups, myTodos } from '../user-data';
+import { myGroups, myTodos, deleteGroup } from '../user-data';
 
-const deleteGroup = (item) => {
+const handleDeleteGroup = (item) => {
   const deletedGroup = item.classList[1];
 
   myGroups.forEach((group) => {
@@ -12,9 +12,13 @@ const deleteGroup = (item) => {
         myTodos.some((todo) => deletedGroup === todo.group)
       ) {
         showWarning(deletedGroup);
-      } else group.deleteGroup(), renderGroups();
+      } else {
+        deleteGroup(group);
+        renderGroups();
+        localStorage.setItem('userGroups', JSON.stringify(myGroups));
+      }
     }
   });
-  localStorage.setItem('userGroups', JSON.stringify(myGroups));
 };
-export default deleteGroup;
+
+export default handleDeleteGroup;

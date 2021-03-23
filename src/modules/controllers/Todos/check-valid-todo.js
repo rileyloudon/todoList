@@ -1,7 +1,7 @@
 import { isFuture, parseISO } from 'date-fns';
 import todoFormError from '../../DOM/Todos/todo-error-handler';
 import { myTodos } from '../user-data';
-import createTodo from './create-todo';
+import { createTodo } from './create-todo';
 
 const validTodo = (e) => {
   e.preventDefault();
@@ -24,15 +24,16 @@ const validTodo = (e) => {
     }
   });
 
-  todoName !== ''
-    ? isFuture(parseISO(compareDate)) || testDate === ''
-      ? timeRegex.test(testTime) || testTime === ''
-        ? !alreadyExists
-          ? (createTodo(), (errorBox.style.display = 'none'))
-          : todoFormError('exists')
-        : todoFormError('time')
-      : todoFormError('date')
-    : todoFormError('title');
+  if (todoName !== '') {
+    if (isFuture(parseISO(compareDate)) || testDate === '') {
+      if (timeRegex.test(testTime) || testTime === '') {
+        if (!alreadyExists) {
+          createTodo();
+          errorBox.style.display = 'none';
+        } else todoFormError('exists');
+      } else todoFormError('time');
+    } else todoFormError('date');
+  } else todoFormError('title');
 };
 
 export default validTodo;

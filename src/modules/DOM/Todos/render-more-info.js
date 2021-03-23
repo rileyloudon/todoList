@@ -1,9 +1,9 @@
 const renderMoreInfo = (item) => {
-  item = item.children[1];
+  const itemDropDown = item.children[1];
 
-  item.style.display === 'none'
-    ? (item.style.display = 'grid')
-    : (item.style.display = 'none');
+  if (itemDropDown.style.display === 'none')
+    itemDropDown.style.display = 'grid';
+  else itemDropDown.style.display = 'none';
 };
 
 export default renderMoreInfo;

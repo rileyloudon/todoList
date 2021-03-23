@@ -1,7 +1,7 @@
 import closeNavbar from './close-navbar';
 
 const displayNavbar = () => {
-  let color = window.matchMedia('(prefers-color-scheme: light)').matches
+  const color = window.matchMedia('(prefers-color-scheme: light)').matches
     ? 'var(--light-main-color)'
     : 'var(--dark-main-color)';
 

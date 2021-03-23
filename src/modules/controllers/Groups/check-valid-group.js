@@ -1,6 +1,6 @@
 import groupFormError from '../../DOM/Groups/groups-error-handler';
 import { myGroups } from '../user-data';
-import createGroup from './create-group';
+import { createGroup } from './create-group';
 
 const validGroup = (e) => {
   e.preventDefault();
@@ -19,11 +19,12 @@ const validGroup = (e) => {
     }
   });
 
-  groupTitle !== ''
-    ? !groupAlreadyExists
-      ? (createGroup(), (groupErrorBox.style.display = 'none'))
-      : groupFormError('exists')
-    : groupFormError('title');
+  if (groupTitle !== '') {
+    if (!groupAlreadyExists) {
+      createGroup();
+      groupErrorBox.style.display = 'none';
+    } else groupFormError('exists');
+  } else groupFormError('title');
 };
 
 export default validGroup;

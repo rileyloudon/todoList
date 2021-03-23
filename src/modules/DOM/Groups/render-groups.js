@@ -30,18 +30,23 @@ const renderGroups = () => {
           <button class='cancel ${group.groupName}'>Cancel</button>
           <button class='delete-all ${group.groupName}'>Delete</button>
         </div>
-      </div>`,
+      </div>`
     )
     .join('')}`;
 
   const changeColorBtn = document.querySelectorAll('.change-color');
   changeColorBtn.forEach((btn) => {
-    btn.addEventListener('change', () => newColor(btn));
+    btn.addEventListener('change', () => {
+      newColor(btn);
+      renderGroups();
+    });
   });
 
   const deleteGroupBtn = document.querySelectorAll('.delete-group');
   deleteGroupBtn.forEach((btn) => {
-    btn.addEventListener('click', () => deleteGroup(btn));
+    btn.addEventListener('click', () => {
+      deleteGroup(btn);
+    });
   });
 };
 

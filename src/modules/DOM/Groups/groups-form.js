@@ -1,7 +1,6 @@
 import randomColor from '../../controllers/Groups/random-color';
 
-const createGroupForm = () => {
-  return `
+const createGroupForm = () => `
   <form id='group-form'>
     <div id='group-title'>
       <label for='add-group'>Add Group</label>
@@ -23,6 +22,5 @@ const createGroupForm = () => {
   </form>
   <div id='group-form-error' style='display: none'></div>
   `;
-};
 
 export default createGroupForm;

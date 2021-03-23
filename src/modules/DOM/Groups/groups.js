@@ -1,7 +1,6 @@
 import { myGroups } from '../../controllers/user-data';
 
-const groups = () => {
-  return `      
+const groups = () => `      
   <nav>
     <ul id='groups'>
       <h4 id='groups-header'>Groups</h4>
@@ -14,14 +13,11 @@ const groups = () => {
             (item) =>
               `<li><a href="#" class='group-navbar btn' style='border:1px solid ${
                 item.groupColor
-              }; color:${
-                item.groupColor
-              }'>${item.humanizeGroupName()}</a></li>`,
+              }; color:${item.groupColor}'>${item.humanizeGroupName()}</a></li>`
           )
           .join('')}
       </div>
     </ul>
   </nav>`;
-};
 
 export default groups;

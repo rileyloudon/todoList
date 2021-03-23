@@ -1,15 +1,13 @@
-import renderTodo from '../../DOM/Todos/render-todo';
-import { myTodos } from '../user-data';
+import { myTodos, completeTodo } from '../user-data';
 
-const completeTodo = (btn) => {
+const handleCompleteTodo = (btn) => {
   myTodos.forEach((todo) => {
     if (btn.classList.contains(todo.name)) {
-      todo.completeTodo();
+      completeTodo(todo);
     }
   });
 
-  renderTodo();
   localStorage.setItem('userTodos', JSON.stringify(myTodos));
 };
 
-export default completeTodo;
+export default handleCompleteTodo;
