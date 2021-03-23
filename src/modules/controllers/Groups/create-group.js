@@ -1,7 +1,27 @@
 import { myGroups } from '../user-data';
 import renderGroups from '../../DOM/Groups/render-groups';
 import randomColor from './random-color';
-import Group from './class-Group';
+
+class Group {
+  constructor(groupName, groupColor) {
+    this.groupName = groupName;
+    this.groupColor = groupColor;
+  }
+
+  changeColor(chosenColor) {
+    this.groupColor = chosenColor;
+    return this.groupColor;
+  }
+
+  humanizeGroupName() {
+    return this.groupName
+      .replace(/%20/g, ' ')
+      .replace(/%27/g, "'")
+      .replace(/(\b[a-z](?=[a-z]{2})|^[a-z])/g, (letter) =>
+        letter.toUpperCase()
+      );
+  }
+}
 
 const createGroup = () => {
   let name = document.getElementById('add-group').value;
@@ -12,7 +32,7 @@ const createGroup = () => {
     .replace(/[']+/g, '%27')
     .toLowerCase();
 
-  let color = document.getElementById('color-picker').value;
+  const color = document.getElementById('color-picker').value;
 
   const group = new Group(name, color);
 
@@ -24,4 +44,4 @@ const createGroup = () => {
   localStorage.setItem('userGroups', JSON.stringify(myGroups));
 };
 
-export default createGroup;
+export { createGroup, Group };
