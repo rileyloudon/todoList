@@ -440,6 +440,7 @@ input.change-color {
   margin: auto;
   grid-area: color;
   opacity: 0;
+  cursor: pointer;
 }
 
 .delete-group {
