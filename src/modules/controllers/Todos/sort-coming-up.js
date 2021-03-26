@@ -1,30 +1,25 @@
 import renderTodo from '../../DOM/Todos/render-todo';
 import closeNavbar from '../close-navbar';
-import { mySort, myTodos } from '../user-data';
+import { myTodosComingUp, myTodosComingUpReverse } from '../user-data';
 
+let comingUpSort;
+
+// Coming Up is unable to edit myTodos, to see/change the function check user-data.js
 const comingUp = () => {
   const normalSort = () => {
-    myTodos = myTodos
-      .filter((e) => e.dueDate === '∞')
-      .concat(
-        myTodos
-          .filter((e) => e.dueDate !== '∞')
-          .sort((a, b) => a.dueDate - b.dueDate),
-      );
-    mySort = 'coming-up';
+    myTodosComingUp();
+    comingUpSort = 'coming-up';
     renderTodo();
   };
 
   const reverseSort = () => {
-    myTodos = myTodos
-      .filter((e) => e.dueDate !== '∞')
-      .sort((a, b) => b.dueDate - a.dueDate)
-      .concat(myTodos.filter((e) => e.dueDate === '∞'));
-    mySort = 'coming-up-reverse';
+    myTodosComingUpReverse();
+    comingUpSort = 'coming-up-reverse';
     renderTodo();
   };
 
-  mySort === 'coming-up' ? reverseSort() : normalSort();
+  if (comingUpSort === 'coming-up') reverseSort();
+  else normalSort();
 
   if (window.matchMedia('(max-width: 600px)').matches) closeNavbar();
 };
