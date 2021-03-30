@@ -1,4 +1,8 @@
-import deleteGroup from '../../controllers/Groups/delete-group';
+import {
+  handleDeleteGroup,
+  cancelDelete,
+  deleteAll,
+} from '../../controllers/Groups/handle-delete-group';
 import newColor from '../../controllers/Groups/change-group-color';
 import { myGroups } from '../../controllers/user-data';
 
@@ -45,9 +49,29 @@ const renderGroups = () => {
   const deleteGroupBtn = document.querySelectorAll('.delete-group');
   deleteGroupBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
-      deleteGroup(btn);
+      handleDeleteGroup(btn);
+
+      const warningDisplaed =
+        document.getElementsByClassName(`group-warning ${btn.classList[1]}`)[0]
+          .style.display === 'grid';
+
+      if (warningDisplaed) {
+        const cancelBtn = document.getElementsByClassName(
+          `cancel ${btn.classList[1]}`
+        )[0];
+        cancelBtn.addEventListener('click', () =>
+          cancelDelete(btn.classList[1])
+        );
+
+        const deleteAllBtn = document.getElementsByClassName(
+          `delete-all ${btn.classList[1]}`
+        )[0];
+        deleteAllBtn.addEventListener('click', () => {
+          deleteAll(btn.classList[1]);
+          renderGroups();
+        });
+      } else renderGroups();
     });
   });
 };
-
 export default renderGroups;
